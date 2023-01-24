@@ -4,7 +4,7 @@ import HomeTask from "@/components/HomeTask.vue";
 import Counter from "@/components/Counter.vue";
 import { useAuthStore } from "@/stores/Auth";
 const authStore = useAuthStore();
-const { isAuthenticated, user } = storeToRefs(authStore);
+const { isAuthenticated, user, fullName } = storeToRefs(authStore);
 
 // function logOut() {
 //   // authStore.$state = { isAuthenticated: false, user: {} };
@@ -30,7 +30,7 @@ const { isAuthenticated, user } = storeToRefs(authStore);
     <!-- <HomeTask /> -->
     <button v-if="!isAuthenticated" @click="authStore.logIn">Log in</button>
     <button v-if="isAuthenticated" @click="authStore.logOut">Log Out</button>
-    <h3 v-if="isAuthenticated">User Name: {{ user.name }}</h3>
+    <h3 v-if="isAuthenticated">User Name: {{ fullName }}</h3>
     <Counter />
   </main>
 </template>
