@@ -19,7 +19,6 @@ export const useAuthStore = defineStore('auth', {
             const { data } = await res.json();
             this.user = data;
             this.isAuthenticated = true;
-            console.log(data);
         }
     }
 })
